@@ -19,5 +19,4 @@ target/
 *.iml
 *.ipr
 
-local
 application-dev.properties

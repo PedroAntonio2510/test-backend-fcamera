@@ -6,15 +6,15 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "tb_movimentacao")
-public class Movimentacao {
+@Table(name = "tb_registro")
+public class Registro {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
     @OneToOne(cascade = CascadeType.ALL)
-    private Veiculo veiculo_id;
+    private Veiculo veiculo;
 
     private LocalDateTime dataEntrada;
 
@@ -22,16 +22,16 @@ public class Movimentacao {
 
     private BigDecimal valorTotal;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "estabelecimento_id")
     private Estabelecimento estabelecimento;
 
-    public Movimentacao() {
+    public Registro() {
     }
 
-    public Movimentacao(String id, Veiculo veiculo_id, LocalDateTime dataEntrada, LocalDateTime dataSaida, BigDecimal valorTotal, Estabelecimento estabelecimento) {
+    public Registro(String id, Veiculo veiculo, LocalDateTime dataEntrada, LocalDateTime dataSaida, BigDecimal valorTotal, Estabelecimento estabelecimento) {
         this.id = id;
-        this.veiculo_id = veiculo_id;
+        this.veiculo = veiculo;
         this.dataEntrada = dataEntrada;
         this.dataSaida = dataSaida;
         this.valorTotal = valorTotal;
@@ -46,12 +46,12 @@ public class Movimentacao {
         this.id = id;
     }
 
-    public Veiculo getVeiculo_id() {
-        return veiculo_id;
+    public Veiculo getveiculo() {
+        return veiculo;
     }
 
-    public void setVeiculo_id(Veiculo veiculo_id) {
-        this.veiculo_id = veiculo_id;
+    public void setveiculo(Veiculo veiculo) {
+        this.veiculo = veiculo;
     }
 
     public LocalDateTime getDataEntrada() {
