@@ -125,6 +125,20 @@ public class Estabelecimento {
         this.veiculos = veiculos;
     }
 
+    public List<Registro> getRegistro() {
+        return registro;
+    }
 
+    public void setRegistro(List<Registro> registro) {
+        this.registro = registro;
+    }
+
+    public LocalDateTime getData_criacao() {
+        return data_criacao;
+    }
+
+    public void setData_criacao(LocalDateTime data_criacao) {
+        this.data_criacao = data_criacao;
+    }
 }
 

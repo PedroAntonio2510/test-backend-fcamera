@@ -14,12 +14,14 @@ public class Registro {
     private String id;
 
     @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "veiculo_placa")
     private Veiculo veiculo;
 
     private LocalDateTime dataEntrada;
 
     private LocalDateTime dataSaida;
 
+    @Column(precision = 10, scale = 2)
     private BigDecimal valorTotal;
 
     @ManyToOne(cascade = CascadeType.ALL)
