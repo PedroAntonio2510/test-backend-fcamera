@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import org.hibernate.validator.constraints.br.CNPJ;
 import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "tb_estabelecimento")
+@EntityListeners(AuditingEntityListener.class)
 public class Estabelecimento {
 
     @Id
